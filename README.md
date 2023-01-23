@@ -1,4 +1,4 @@
-Project-1 Team-14
+Project-1
 
 ## Project Members
 -Haley Huntington
