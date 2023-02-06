@@ -32,6 +32,8 @@ def print_repo(repo):
     print("Language:", repo.language)
     # number of forks
     print("Number of forks:", repo.forks)
+    # number of contributors
+    print("Number of contributors", repo.contributors_url)
     # number of stars
     print("Number of stars:", repo.stargazers_count)
     print("-"*50)
@@ -48,15 +50,9 @@ def print_repo(repo):
 # Github username
 username = "sdlott"
 # pygithub object
-g = Github()
+g = Github("https://api.github.com/repos/twbs/bootstrap/contributors?")
 # get that user by username
 user = g.get_user(username)
 
 for repo in user.get_repos():
-    print(dir(repo))
-
-
-# search repositories by name
-for repo in g.search_repositories("pythoncode tutorials"):
-    # print repository details
-    print_repo(repo)
+    print(print_repo(repo))
