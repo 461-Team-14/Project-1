@@ -48,9 +48,9 @@ def print_repo(repo):
         pass
 
 # Github username
-username = "sdlott"
+username = "cloudinary"
 # pygithub object
-g = Github("https://api.github.com/repos/twbs/bootstrap/contributors?")
+g = Github()
 # get that user by username
 user = g.get_user(username)
 
