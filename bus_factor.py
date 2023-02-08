@@ -25,9 +25,8 @@ query = """
 }
 """
 
-# request = requests.post('https://api.github.com/repos/twbs/bootstrap/contributors', json={'query': query}, headers=headers)
-# print(request)
+
 
 result = run_query(query) # Execute the query
-print(result)
+print(result["data"]["repository"]["forkCount"])
 
