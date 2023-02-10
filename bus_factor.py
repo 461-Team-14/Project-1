@@ -6,10 +6,7 @@ import os
 
 # getbusfactor takes in the cleaned URL and splits it into user and repo name
 # it then uses a graphQL endpoint to return the number of forks a repo has
-def getbusfactor(clean_url):
-  urlsplit = clean_url.split("/")
-  user = urlsplit[1]
-  repo = urlsplit[2]
+def getbusfactor(user, repo):
   # Not sure how this will work on eceprog, waiting to hear back on piazza
   headers = {"Authorization": "Bearer" + " " + os.environ.get('GITHUB_TOKEN')}
 
@@ -23,20 +20,20 @@ def getbusfactor(clean_url):
           raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, query))
 
           
-  # The GraphQL query (with a few aditional bits included) itself defined as a multi-line string.     
+  # The GraphQL query (with a few aditional bits included) itself defined as a multi-line string.   
   query = """
   {
-    repository(owner:{user}, name:{repo}) {
+    repository(owner:"{user}", name:"{repo}") {
       forkCount
     }
   }
-  """.format(user=user, repo=repo)
+  """
   print(query)
 
   result = run_query(query) # Execute the query
   return result["data"]["repository"]["forkCount"]
 
-testURL = "github/cloudinary/cloudinary_npm"
-forkCount = getbusfactor(testURL)
+
+forkCount = getbusfactor("cloudinary", "cloudinary_npm")
 print(forkCount)
 
