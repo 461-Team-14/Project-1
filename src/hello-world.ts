@@ -78,7 +78,7 @@ async function main() {
   let data = getData();
   // console.log(data);
   let wordList = cleanData(data);
-  console.log('URL NET_SCORE RAMP_UP_SCORE CORRECTNESS_SCORE BUS_FACTOR_SCORE RESPONSIVE_MAINTAINER_SCORE LICENSE_SCORE');
+  // console.log('URL NET_SCORE RAMP_UP_SCORE CORRECTNESS_SCORE BUS_FACTOR_SCORE RESPONSIVE_MAINTAINER_SCORE LICENSE_SCORE');
   var netscores:Array<number> = [];
   var outputStrings:Array<string> = [];
 
@@ -235,7 +235,7 @@ async function main() {
     var json: string[] = [];
     for(let i = 0; i < finalOutputStrings.length; i++){
       let stringgie = finalOutputStrings[i].split(" ")
-      console.log(`${stringgie[0]} ${stringgie[1]} ${stringgie[2]} ${stringgie[3]} ${stringgie[4]} ${stringgie[5]} ${stringgie[6]}`)
+      // console.log(`${stringgie[0]} ${stringgie[1]} ${stringgie[2]} ${stringgie[3]} ${stringgie[4]} ${stringgie[5]} ${stringgie[6]}`)
       let temp = JSON.stringify({URL: stringgie[0], 
                   NET_SCORE: Number(stringgie[1]), 
                   RAMP_UP_SCORE: Number(stringgie[2]), 
@@ -244,6 +244,7 @@ async function main() {
                   RESPONSIVE_MAINTAINER_SCORE: Number(stringgie[5]), 
                   LICENSE_SCORE: Number(stringgie[6])})
       json.push(temp)
+      console.log(temp)
     }
 
     // console.log(json)

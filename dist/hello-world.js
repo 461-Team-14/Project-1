@@ -68,7 +68,6 @@ function main() {
         var objs = [];
         let data = getData();
         let wordList = cleanData(data);
-        console.log('URL NET_SCORE RAMP_UP_SCORE CORRECTNESS_SCORE BUS_FACTOR_SCORE RESPONSIVE_MAINTAINER_SCORE LICENSE_SCORE');
         var netscores = [];
         var outputStrings = [];
         for (let i = 0; i < wordList.length; i++) {
@@ -192,7 +191,6 @@ function main() {
         var json = [];
         for (let i = 0; i < finalOutputStrings.length; i++) {
             let stringgie = finalOutputStrings[i].split(" ");
-            console.log(`${stringgie[0]} ${stringgie[1]} ${stringgie[2]} ${stringgie[3]} ${stringgie[4]} ${stringgie[5]} ${stringgie[6]}`);
             let temp = JSON.stringify({ URL: stringgie[0],
                 NET_SCORE: Number(stringgie[1]),
                 RAMP_UP_SCORE: Number(stringgie[2]),
@@ -201,6 +199,7 @@ function main() {
                 RESPONSIVE_MAINTAINER_SCORE: Number(stringgie[5]),
                 LICENSE_SCORE: Number(stringgie[6]) });
             json.push(temp);
+            console.log(temp);
         }
     });
 }
